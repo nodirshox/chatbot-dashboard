@@ -1,0 +1,31 @@
+<%- include('includes/header') %>
+<div class="banner"><h2><a href="/">Bosh sahifa</a><i class="fa fa-angle-right"></i><span>Barcha mahsulotlar</span></h2></div>
+<div class="blank">
+  <div class="blank-page">
+    <a href="/new-item" class="btn-default btn">Yangi mahsulot qo'shish</a><br><br>
+    <table class="table">
+      <tbody>
+        <% product.map((food) => { %>
+          <tr class="table-row">
+              <td class="table-img">
+                 <img src="<%= food.picture %>" alt="food" class="food-picture" />
+              </td>
+              <td class="table-text">
+                <h6><a href="/item/<%= food._id %>"><%= food.name %></a></h6>
+              </td>
+              <td>
+                <span class="fam"><%= food.category.name %></span>
+              </td>
+              <td class="march">
+                <%= food.price %> so'm
+              </td>
+          </tr>
+          <%  }) %>
+      </tbody>
+  </table>
+  </div>
+</div>
+
+    
+
+<%- include('includes/footer') %>

@@ -1,0 +1,34 @@
+<%- include('includes/header') %>
+
+<div class="banner"><h2><a href="/">Bosh sahifa</a><i class="fa fa-angle-right"></i><span>Yangi mahsulot qo'shish</span></h2></div>
+
+<div class="blank">
+    <div class="blank-page">        
+    <a href="/item" class="btn-default btn">Barcha mahsulotlarni ko'rish</a><br><br>
+    <form action="/new-item" method="POST">
+        <div class="form-group">
+          <label>Mahsulot nomi</label>
+          <input type="text" name="name" class="form-control" placeholder="Mahsulot nomi" autocomplete="off" required>
+        </div>
+        <div class="form-group">
+            <label>Narxi</label>
+            <input type="number" name="price" min="1" class="form-control" placeholder="0" autocomplete="off" required>
+        </div>
+        <div class="form-group">
+            <label>Kategoriya</label><br />
+            <select id="category" name="category">
+                <% cat.map((category) => { %>
+                <option value="<%= category._id %>" id="<%= category._id %>"><%= category.name %></option>
+                <%  }) %>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Mahsulot rasmi uchun havola</label>
+            <input type="text" name="picture" class="form-control" placeholder="http://example.com/food.jpg" autocomplete="off" required>
+          </div>
+        <button type="submit" class="btn btn-success">QO'SHISH</button>
+      </form>
+
+</div>
+</div>
+<%- include('includes/footer') %>

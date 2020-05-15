@@ -1,0 +1,26 @@
+<%- include('includes/header') %>
+<div class="banner"><h2><a href="/">Bosh sahifa</a><i class="fa fa-angle-right"></i><span>Kategoriya</span></h2></div>
+
+<div class="blank">
+    <div class="blank-page">        
+
+    <a href="/new-category" class="btn-default btn">Yangi kategoriya qo'shish</a><br><br>
+    <table class="table">
+      <tbody>
+        <% cat.map((cat) => { %>
+          <tr class="table-row">
+              <td class="table-text">
+                <h6><a href="category/<%=cat._id%>"><%= cat.name %></a></h6>
+              </td>
+              <td class="march">
+                <%= cat.description %>
+              </td>
+          </tr>
+          <%  }) %>
+      </tbody>
+  </table>
+
+  </div>
+</div>
+
+<%- include('includes/footer') %>

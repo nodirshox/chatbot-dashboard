@@ -1,0 +1,18 @@
+<%- include('includes/header') %>
+<div class="banner"><h2><a href="/">Bosh sahifa</a><i class="fa fa-angle-right"></i><span>Mahsulot</span></h2></div>
+
+<div class="blank">
+    <div class="blank-page">        
+
+      <a href="/item" class="btn-default btn">Barcha mahsulotlar</a><br><br>
+            <b>Nomi:</b> <%= product.name %><br />
+            <b>Narxi:</b> <%= product.price %> so'm<br />
+            <b>Kategoriya:</b> <%= product.category.name %><br />
+            <a href="/edit/<%= product._id %>" class="btn-primary btn">O'zgartirish</a> | <a href="/delete/<%= product._id %>" class="btn-danger btn">O'chirish</a>
+            <br><br>
+            <img src="<%= product.picture %>" alt="item picture" class="food-images">
+
+  </div>
+</div>
+
+<%- include('includes/footer') %>

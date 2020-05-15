@@ -1,0 +1,32 @@
+<%- include('includes/header') %>
+
+<div class="banner"><h2><a href="/">Bosh sahifa</a><i class="fa fa-angle-right"></i><span>Buyurtmalar</span></h2></div>
+
+<div class="blank">
+    <div class="blank-page">        
+
+
+<table class="table">
+  <tbody>
+    <% order.map((users) => { %>
+      <tr class="table-row">
+          <td class="table-text">
+            <h6><%= users.firstname %></h6>
+          </td>
+          <td class="march">
+            <%= users.phone_number %>
+          </td>
+          <td class="march">
+            <%= users.registration.toLocaleString() %>
+          </td>
+          <td class="march">
+            <%= users.order %>
+          </td>
+      </tr>
+      <%  }) %>
+  </tbody>
+</table>
+
+</div>
+</div>
+<%- include('includes/footer') %>
