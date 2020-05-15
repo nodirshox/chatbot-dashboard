@@ -4,6 +4,7 @@
   "description": "web dashboard for (Chat bot)[https://github.com/nodirshox/chatbot]",
   "main": "index.js",
   "scripts": {
+    "watch": "nodemon db",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
