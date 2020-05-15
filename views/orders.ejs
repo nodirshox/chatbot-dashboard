@@ -20,6 +20,9 @@
             <%= users.registration.toLocaleString() %>
           </td>
           <td class="march">
+            <a href="https://maps.google.com/?q=<%= users.location.lat %>,<%= users.location.lon %>" target="_black">Location</a>
+          </td>
+          <td class="march">
             <%= users.order %>
           </td>
       </tr>
