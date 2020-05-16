@@ -123,12 +123,13 @@ router.post('/edit-category/:id', function(req, res) {
 })
 
 // Delete category
+/*
 router.get('/delete-category/:id', function(req, res) {
   Category.findByIdAndRemove({_id: req.params.id}, function(err, result) {
     res.redirect('/category')
   })
 })
-
+*/
 // Show category by id
 router.get('/category/:id', function(req, res) {
   Category.findOne({ _id: req.params.id }).exec(function(err, cat) {
