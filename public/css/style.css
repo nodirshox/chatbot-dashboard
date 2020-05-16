@@ -1762,11 +1762,11 @@ div#home {
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .table-img img{
-	border-radius: 100px;
-	-webkit-border-radius: 100px;
-	-o-border-radius: 100px;
-	-moz-border-radius: 100px;
-	-ms-border-radius: 100px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
 }
 .table-row td{
 	font-size: 1em;

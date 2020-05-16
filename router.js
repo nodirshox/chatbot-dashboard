@@ -69,17 +69,18 @@ router.get('/edit/:id', function(req, res) {
 })
 router.post('/edit/:id', function(req, res) {
   Product.findOneAndUpdate({ _id: req.params.id }, {$set: req.body}, function(err, result) {
-    res.redirect('/item')
+    res.redirect(`/item/${req.params.id}`)
   })
 })
 
 // Delete item
+/*
 router.get('/delete/:id', function(req, res) {
   Product.findByIdAndRemove({_id: req.params.id}, function(err, result) {
     res.redirect('/item')
   })
 })
-
+*/
 // Add category
 router.get('/new-category', function(req, res) {
   res.render('new-category')

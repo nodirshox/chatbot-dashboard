@@ -9,7 +9,16 @@
             <b>Haqida:</b> <%= product.description %><br />
             <b>Narxi:</b> <%= product.price %> so'm<br />
             <b>Kategoriya:</b> <%= product.category.name %><br />
-            <a href="/edit/<%= product._id %>" class="btn-primary btn">O'zgartirish</a> | <a href="/delete/<%= product._id %>" class="btn-danger btn">O'chirish</a>
+            
+            <b>Holati:</b> <%if (product.status === 1) { %>
+                Faol
+              <% } else if(product.status === 2) { %>
+                Nofaol (ko'rinadi, buyurta qila olishmaydi)
+              <% } else if(product.status === 0) { %>
+                Arxiv (Ko'rinmaydi)
+              <% } %>
+              <br />
+            <a href="/edit/<%= product._id %>" class="btn-primary btn">O'zgartirish</a>
             <br><br>
             <img src="<%= product.picture %>" alt="item picture" class="food-images">
 
