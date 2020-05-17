@@ -12,7 +12,38 @@ var ObjectId = require('mongodb').ObjectID;
 
 // Home page
 router.get('/', function(req, res) {
-    res.render('home')
+  Product.find({}).populate('category').exec((err, product) => {
+    var items = product.length
+    if(err) {
+      res.send('Xatolik yuz berdi')
+    } else {
+      Category.find({}).populate('category').exec((err, category) => {
+        var categories = category.length
+        if(err) {
+          res.send('Xatolik yuz berdi')
+        } else {
+          Order.find({}).populate('category').exec((err, order) => {
+            var orders = order.length
+            if(err) {
+              res.send('Xatolik yuz berdi')
+            } else {
+              User.find({}).populate('category').exec((err, user) => {
+                // I know this s**t code, I am lazy to find another solution ))
+                var users = user.length
+                if(err)
+                  res.send('Xatolik yuz berdi')
+                else
+                  res.render('home', { items, categories, orders, users })
+              })
+
+            }
+          })
+
+        }
+      })
+    }
+
+  })
 })
 
 // Show all items
@@ -153,7 +184,7 @@ router.get('/user', function(req, res) {
 })
 // All orders
 router.get('/order', function(req, res) {
-  Order.find({}).exec(function(err, order) {
+  Order.find({}).sort({registration: 'desc'}).exec(function(err, order) {
     if(err){
       res.send('Xatolik yuz berdi.')
     } else {
@@ -161,7 +192,16 @@ router.get('/order', function(req, res) {
     }
   })
 })
-
+router.get('/order/:id', function(req, res) {
+  Order.findOne({ _id: req.params.id }).exec(function(err, cat) {
+    if(err) {
+      res.send('Xatolik yuz berdi')
+    } else {
+      var time = dateFormat(cat.registration, "HH:MM, d-mmm yyyy")
+      res.render('order-by-id',{cat, time})
+    }
+  })
+})
 // Error handler
 router.get('*', function(req, res) {  
     res.render('404');

@@ -1,11 +1,12 @@
 <%- include('includes/header') %>
-<div class="banner"><h2><a href="/">Bosh sahifa</a><i class="fa fa-angle-right"></i><span>Kategoriyani o'zgartirish</span></h2></div>
-
-<div class="blank">
-    <div class="blank-page">        
-
-    <a href="/category" class="btn-default btn">Barcha kategoriyalarni ko'rish</a><br><br>
+     
+<div class="col-md-12">
+    <div class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title">O'zgartirish</h3>
+      </div>
     <form action="/edit-category/<%= cat._id %>" method="POST">
+        <div class="card-body">
         <div class="form-group">
             <label>Kategoryiya nomi</label>
             <input type="text" name="name" class="form-control" value="<%= cat.name %>" autocomplete="off" required>
@@ -14,7 +15,8 @@
             <label>Izoh</label>
             <input type="text" name="description" class="form-control" value="<%= cat.description %>" autocomplete="off" required>
         </div>
-        <button type="submit" class="btn btn-success">SAQLASH</button>
+        <button type="submit" class="btn btn-success">Saqlash</button>
+    </div>
     </form>
 </div>
 </div>
