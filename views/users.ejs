@@ -18,7 +18,7 @@
           <% user.map((users, i) => { %>
           <tr>
             <td><%= i+1 %>.</td>
-            <td><%= users.firstname %></td>
+            <td><a href="tg://openmessage?user_id=<%= users.id %>"><%= users.firstname %></a></td>
             <td><span class=""><%= users.phone_number %></span></td>
           </tr>
           <%  }) %>
