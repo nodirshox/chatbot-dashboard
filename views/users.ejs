@@ -18,7 +18,7 @@
           <% user.map((users, i) => { %>
           <tr>
             <td><%= i+1 %>.</td>
-            <td><a href="tg://user?id=<%= users.id %>"><%= users.firstname %></a></td>
+            <td><%= users.firstname %></td>
             <td><span class=""><%= users.phone_number %></span></td>
           </tr>
           <%  }) %>
