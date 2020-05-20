@@ -9,6 +9,20 @@ const router = require('./router')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const password = process.env.PW
+function passwordProtected(req, res, next) {
+    res.set('WWW-Authenticate', 'Basic realm="Dashboard"')
+    //console.log(req.headers.authorization)
+    if(req.headers.authorization == password){
+      next()
+    } else {
+      res.status(401).send("Authenticated required")
+    }
+  }
+  
+  app.use(passwordProtected)
+
+
 app.use(express.static('public'))
 app.set('views', 'views')
 app.set('view engine', 'ejs')
