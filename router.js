@@ -10,6 +10,8 @@ const User = require('./models/User')
 const Order = require('./models/Order')
 var ObjectId = require('mongodb').ObjectID;
 
+const channel = process.env.PRIVATECHANNEL
+
 // Home page
 router.get('/', function(req, res) {
   Product.find({}).populate('category').exec((err, product) => {
@@ -188,7 +190,7 @@ router.get('/order', function(req, res) {
     if(err){
       res.send('Xatolik yuz berdi.')
     } else {
-      res.render('orders',{order})
+      res.render('orders',{order, channel})
     }
   })
 })
